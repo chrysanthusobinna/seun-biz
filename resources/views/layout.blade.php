@@ -40,8 +40,7 @@
 				<!-- Info List -->
 				<ul class="list-style-one">
 					<li><i class="fa fa-envelope"></i> <a href="mailto:{{ env('COMPANY_EMAIL') }}">{{ env('COMPANY_EMAIL') }}</a></li>
-					<li><i class="fa fa-map-marker"></i> {{ env('COMPANY_ADDRESS') }}</li>
-					<li><i class="fa fa-clock"></i> Mon _ Sat: 9.00 to 18.00</li>
+					<li><i class="fa fa-phone"></i> <a href="tel:{{ env('COMPANY_PHONE') }}">{{ env('COMPANY_PHONE') }}</a></li>
 				</ul>
 			</div>
 			
@@ -214,7 +213,7 @@
 	<div class="footer-bottom">
 		<div class="auto-container">
 			<div class="inner-container">
-				<div class="copyright-text">&copy; Copyright reserved by <a href="{{ route('home') }}">kodesolution.com</a>
+				<div class="copyright-text">&copy; Copyright reserved by <a href="{{ route('home') }}">Seun Lafe Multibiz</a>
 				</div>
 			</div>
 		</div>

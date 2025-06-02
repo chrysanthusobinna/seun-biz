@@ -432,8 +432,7 @@
 
               <!-- Contact Form -->
               <div class="contact-form wow fadeInLeft">
-              <button class="theme-btn btn-style-three" type="submit" name="submit-form"><span class="btn-title">Contact us!</span></button>
-
+              <a href="{{ route('contact') }}" class="theme-btn btn-style-three" type="button" ><span class="btn-title">Contact us!</span></a>
               </div>
               <!-- End Contact Form -->
 

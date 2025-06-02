@@ -3,6 +3,7 @@
 @section('content')
  
 
+{!! NoCaptcha::renderJs() !!}
 
 
 <!-- Start main-content -->
@@ -24,13 +25,29 @@
 	<div class="container ">
 		<div class="row">
 			<div class="col-xl-6 col-lg-6">
+
+				@if(session('success'))
+					<div class="alert alert-success">{{ session('success') }}</div>
+				@endif
+				@if($errors->any())
+					<div class="alert alert-danger">
+						<ul class="mb-0">
+							@foreach($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
+		
 				<div class="sec-title">
 					<span class="sub-title">Send us an email</span>
 					<h2>We'd love to hear from you!</h2>
 					<div class="text">Whether you're interested in our services, have a business inquiry, or just want to learn more about what we do — we're here and ready to help.</div>
 				</div>
 				<!-- Contact Form -->
-				<form id="contact_form" name="contact_form" class="" action="#" method="post">
+				<form id="contact_form" name="contact_form" class="" action="{{ route('contact.send') }}" method="post">
+                    @csrf
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="mb-3">
@@ -59,10 +76,13 @@
 						<textarea name="form_message" class="form-control required" rows="7" placeholder="Your Message" required></textarea>
 					</div>
 					<div class="mb-3">
-						<input name="form_botcheck" class="form-control" type="hidden" value="" />
-						<button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait..."><span class="btn-title">Send Message</span></button>
-						<button type="reset" class="theme-btn btn-style-one bg-theme-color5"><span class="btn-title">Reset</span></button>
-					</div>
+    {!! app('captcha')->display() !!}
+</div>
+<div class="mb-3">
+    <input name="form_botcheck" class="form-control" type="hidden" value="" />
+    <button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait..."><span class="btn-title">Send Message</span></button>
+    <button type="reset" class="theme-btn btn-style-one bg-theme-color5"><span class="btn-title">Reset</span></button>
+</div>
 				</form>
 				<!-- Contact Form Validation-->
 			</div>
@@ -134,4 +154,5 @@
 </section>
 
 
-@endsection 
+
+@endsection

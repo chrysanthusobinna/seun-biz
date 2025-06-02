@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
@@ -20,3 +21,4 @@ Route::get('/services/visa-counselling-support', [PageController::class, 'visaCo
 Route::get('/services/bus-car-rent-service', [PageController::class, 'busCarRentService'])->name('services.bus-car-rent-service');
 Route::get('/services/medical-health-tourism', [PageController::class, 'medicalHealthTourism'])->name('services.medical-health-tourism');
 Route::get('/services/chartered-aircraft-service', [PageController::class, 'charteredAircraftService'])->name('services.chartered-aircraft-service');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
